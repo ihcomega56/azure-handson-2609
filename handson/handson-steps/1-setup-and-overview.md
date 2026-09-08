@@ -1,8 +1,6 @@
 ## この章でやること
 
-Visual Studio Code で GitHub Copilot を使える状態にし、今回のハンズオンで使う GitHub Copilot の機能をざっくり確認します。
-
-目安時間: 20分
+Visual Studio Code で GitHub Copilot を使える状態にし、今回のハンズオンで使う GitHub Copilot の機能を大まかに確認します。
 
 この章では、次の機能を実際に一度ずつ操作します。
 
@@ -28,22 +26,22 @@ Visual Studio Code で GitHub Copilot を使える状態にし、今回のハン
 
 このスクリプトは、Visual Studio Code、Azure CLI、Gitを確認し、不足しているものだけをインストールします。再実行しても導入済みの項目はスキップされます。
 
-### VS Code拡張機能とBicep CLIを手動でインストール
+### Bicep CLIとVS Code拡張機能を手動でインストール
 
 上記スクリプトはVS Code拡張機能とBicep CLIをインストールしないため、以下のコマンドを実行して導入します。
 
-1. Visual Studio Codeで新しいPowerShellターミナルを開き、次のコマンドを実行してVS Code拡張機能をインストールします。
-    ```powershell
-    code --install-extension ms-azuretools.vscode-bicep --force
-    code --install-extension bierner.markdown-mermaid --force
-    ```
-1. 続けて、次のコマンドを実行してBicep CLIをインストールします。
+1. 次のコマンドを実行してBicep CLIをインストールします。
     ```powershell
     az bicep install
     ```
 1. 次のコマンドでBicep CLIが使えることを確認します。
     ```powershell
     az bicep version
+    ```
+1. Visual Studio Codeで新しいPowerShellターミナルを開き、次のコマンドを実行してVS Code拡張機能をインストールします。
+    ```powershell
+    code --install-extension ms-azuretools.vscode-bicep --force
+    code --install-extension bierner.markdown-mermaid --force
     ```
 
 ### Visual Studio Code の準備
@@ -78,24 +76,15 @@ Visual Studio Code で GitHub Copilot を使える状態にし、今回のハン
     - Plan: 編集前に作業手順、対象ファイル、確認方法を整理
     - Agent: ファイル編集、コマンド実行、検証をまとめて依頼
 1. Ask を選び、次の質問を送信します。
-    - `このワークスペースが何を扱うリポジトリか、まだファイルを変更せずに説明してください。`
+    - `このワークスペースが何を扱うリポジトリか説明してください。`
 1. チャット入力欄に `#` を入力し、表示される候補を確認します。
 1. `#file` などのファイルを参照する候補を使って、この章のファイルをコンテキストに含めます。エディターで文章を選択した場合は、選択範囲を追加する候補も試します。
 1. チャット入力欄に `/` を入力し、利用可能なスラッシュコマンドを確認します。`/explain` など、現在の環境に表示されるコマンドを1つ実行します。
 1. ファイルをチャットへドラッグ＆ドロップするか、コンテキスト追加ボタンから添付できることを確認します。
-1. GitHub Copilot CLI の紹介を聞きます。CLI では `/help`、`@` によるファイル参照、`!` によるシェルコマンド実行などを確認します。利用できるコマンドはバージョンによって異なるため、詳細は `/help` で確認します。
-1. GitHub Copilot App の紹介を聞きます。GUI ベースで作業したい場合の入口として紹介します。
-1. SRE Agent の紹介を聞きます。運用・障害調査・リソース調査のようなシナリオで、専用エージェントを使うとどのような相談ができるかを確認します。
 
 ## プロンプト例
 
-- 今日のハンズオンで GitHub Copilot を使う場面を、初心者向けに説明してください。
+- Azure でのインフラ構築において GitHub Copilot はどのような支援が可能ですか？
 - Azure インフラを IaC 化するとき、最初に確認すべき観点を教えてください。
-- GitHub Copilot Chat、CLI、App、SRE Agent はそれぞれどのような場面で使い分けると良いですか？
 - VS Code の Copilot Chat で、開いているファイルをコンテキストに含める方法を教えてください。
 - Ask、Plan、Agent の違いを、ファイルを変更する可能性の有無も含めて説明してください。
-
-## 余裕がある方向けの追加ワーク
-
-1. Copilot Chat の回答をそのまま受け入れるのではなく、根拠となるファイル名や行番号も出してもらいます。
-1. 自分の作業スタイルに合わせて、Copilot Chat と GitHub Copilot CLI のどちらが使いやすいかを比較します。
