@@ -57,7 +57,8 @@ Azure への実デプロイは行いません。Azure サブスクリプショ�
 1. [環境セットアップと GitHub Copilot の紹介](handson-steps/1-setup-and-overview.md)
 1. [既存インフラを理解し、Mermaid 構成図を作成する](handson-steps/2-understand-existing-infra.md)
 1. [既存構成から Bicep のたたき台を作成する](handson-steps/3-create-bicep.md)
-1. [自然言語で Azure を確認し、GitHub に push するアプリを作る](handson-steps/4-generate-commands-and-app.md)
+1. [自然言語で Azure の確認コマンドを実行する](handson-steps/4-run-azure-commands.md)
+1. [GitHub に push するアプリを作る](handson-steps/5-create-and-push-app.md)
 
 ## ゴール
 
