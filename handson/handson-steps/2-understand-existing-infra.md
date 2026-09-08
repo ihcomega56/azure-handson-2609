@@ -17,7 +17,6 @@
     サブスクリプション ID: <subscription-id>
     リソースグループ名: <resource-group-name>
 
-    まず実行予定の Azure CLI コマンドを示してください。
     create、update、delete など変更を伴う操作は実行しないでください。
     VNet、Subnet、VM、Bastion、NAT Gateway、Public IP、NSG の関係が分かる図にしてください。
     不足している情報があれば、推測せず先に質問してください。
