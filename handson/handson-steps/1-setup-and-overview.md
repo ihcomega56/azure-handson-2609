@@ -26,7 +26,25 @@ Visual Studio Code で GitHub Copilot を使える状態にし、今回のハン
 1. `Setup completed successfully.` と表示されたことを確認します。途中でエラーになった場合は、表示されたメッセージを講師へ共有します。
 1. Visual Studio CodeとPowerShellをすべて閉じ、Visual Studio Codeでこのリポジトリを開き直します。
 
-このスクリプトは、Visual Studio Code、Azure CLI、Git、Bicep CLI、およびハンズオンで使用するVS Code拡張機能を確認し、不足しているものだけをインストールします。再実行しても導入済みの項目はスキップされます。
+このスクリプトは、Visual Studio Code、Azure CLI、Gitを確認し、不足しているものだけをインストールします。再実行しても導入済みの項目はスキップされます。
+
+### VS Code拡張機能とBicep CLIを手動でインストール
+
+上記スクリプトはVS Code拡張機能とBicep CLIをインストールしないため、以下のコマンドを実行して導入します。
+
+1. Visual Studio Codeで新しいPowerShellターミナルを開き、次のコマンドを実行してVS Code拡張機能をインストールします。
+    ```powershell
+    code --install-extension ms-azuretools.vscode-bicep --force
+    code --install-extension bierner.markdown-mermaid --force
+    ```
+1. 続けて、次のコマンドを実行してBicep CLIをインストールします。
+    ```powershell
+    az bicep install
+    ```
+1. 次のコマンドでBicep CLIが使えることを確認します。
+    ```powershell
+    az bicep version
+    ```
 
 ### Visual Studio Code の準備
 

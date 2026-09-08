@@ -72,44 +72,6 @@ if (-not $codePath) {
     throw 'The VS Code command-line tool was not found. Restart PowerShell and run this script again.'
 }
 
-$extensions = @(
-    'GitHub.copilot'
-    'GitHub.copilot-chat'
-    'ms-azuretools.vscode-azureresourcegroups'
-    'ms-azuretools.vscode-bicep'
-    'bierner.markdown-mermaid'
-)
-
-$installedExtensions = @(& $codePath --list-extensions 2>$null)
-foreach ($extension in $extensions) {
-    if ($installedExtensions -contains $extension) {
-        Write-Host "[skip] VS Code extension $extension is already installed."
-        continue
-    }
-
-    Write-Host "[install] VS Code extension $extension"
-    & $codePath --install-extension $extension --force
-    if ($LASTEXITCODE -ne 0) {
-        throw "Failed to install VS Code extension $extension."
-    }
-}
-
-$azCommand = Get-Command az -ErrorAction SilentlyContinue
-if (-not $azCommand) {
-    throw 'Azure CLI was installed, but az was not found. Restart PowerShell and run this script again.'
-}
-
-& az bicep version *> $null
-if ($LASTEXITCODE -ne 0) {
-    Write-Host '[install] Bicep CLI'
-    & az bicep install
-    if ($LASTEXITCODE -ne 0) {
-        throw 'Failed to install Bicep CLI.'
-    }
-} else {
-    Write-Host '[skip] Bicep CLI is already installed.'
-}
-
 Write-Host ''
 Write-Host 'Setup completed successfully.'
 Write-Host 'Restart Visual Studio Code before starting the hands-on exercises.'
